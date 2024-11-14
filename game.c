@@ -96,14 +96,19 @@ void moverFantasma(int movRandom, int Movimiento, SDL_Rect* fantasmaRect, int *f
     }
 }
 
-// Función para simular portales, si pacman o fantasma se sale del mapa, lo ubicamos al otro lado !! Es solo horizontalmente !!
+// Función para simular portales, si pacman o fantasma se sale del mapa, lo ubicamos al otro lado
 int funTileSize = 16;
 int funAnchoPantalla = 448; // 28 * 16
+int funAltoPantalla = 512; // 32 * 16
 void simularPortales(SDL_Rect* rect){
     if (rect->x >= funAnchoPantalla){
         rect->x = 0;
     } else if (rect->x < 0){
         rect->x = funAnchoPantalla - funTileSize;
+    } else if (rect->y >= funAltoPantalla){
+        rect->y = 0;
+    } else if (rect->y < 0){
+        rect->y = funAltoPantalla - funTileSize;
     }
 }
 
